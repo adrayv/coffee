@@ -9,7 +9,9 @@ const Home = () => (
     <Nav />
 
     <div className="hero">
-      <h1 className="title">Learn Next!</h1>
+      <h1 className="title">
+        Learn <Link href="/posts/first-post">Next!</Link>
+      </h1>
       <p className="description">
         To get started, edit <code>pages/index.js</code> and save to reload.
       </p>
@@ -38,6 +40,8 @@ const Home = () => (
         </Link>
       </div>
     </div>
+
+    <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
 
     <style jsx>{`
       .hero {
