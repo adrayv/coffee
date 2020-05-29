@@ -1,6 +1,6 @@
 const compose = plugins => ({
   webpack(config, options) {
-    return plugins.reduce((config, plugin) => {
+    const c = plugins.reduce((config, plugin) => {
       if (plugin instanceof Array) {
         const [_plugin, ...args] = plugin;
         plugin = _plugin(...args);
@@ -13,6 +13,12 @@ const compose = plugins => ({
       }
       return config;
     }, config);
+    return {
+      ...c,
+      node: {
+        fs: 'empty',
+      },
+    };
   },
 
   webpackDevMiddleware(config) {
