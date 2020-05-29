@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Nav from '../components/AppNav';
+import Nav from '~/components/AppNav';
 
 const Wrapper = styled.div`
   width: 100vw;
