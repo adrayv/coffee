@@ -6,6 +6,7 @@ import DatePicker from '../components/DatePicker'
 import { SmileFilled } from '@ant-design/icons'
 
 import Link from 'next/link'
+import styled from 'styled-components'
 
 const FormItem = Form.Item
 const Option = Select.Option
@@ -13,6 +14,12 @@ const Option = Select.Option
 const content = {
   marginTop: '100px',
 }
+
+const S = styled.div`
+  width: 100px;
+  height: 100px;
+  background: red;
+`
 
 export default function Home() {
   return (
@@ -99,6 +106,7 @@ export default function Home() {
           </FormItem>
         </Form>
       </div>
+      <S/>
     </div>
   )
 }
