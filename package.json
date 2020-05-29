@@ -1,8 +1,9 @@
 {
   "name": "create-next-example-app",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
+    "dev": "cross-env NODE_OPTIONS=\"-r esm\" next",
+    "build": "cross-env NODE_OPTIONS=\"-r esm\" next build",
+    "analyze": "cross-env-shell NODE_OPTIONS=\"-r esm\" ANALYZE=true next build",
     "start": "next start"
   },
   "prettier": {
@@ -33,6 +34,12 @@
     }
   },
   "dependencies": {
+    "@ant-design/icons": "^4.1.0",
+    "@next/bundle-analyzer": "^9.4.4",
+    "antd": "^4.2.5",
+    "babel-plugin-import": "^1.13.0",
+    "cross-env": "^7.0.2",
+    "esm": "^3.2.25",
     "next": "^9.4.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

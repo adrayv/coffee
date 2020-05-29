@@ -1,95 +1,29 @@
 import React from 'react';
 import Link from 'next/link';
-import Head from '../components/head';
-import Nav from '../components/nav';
+import Head from 'components/Head';
+import styled from 'styled-components';
+import { Button } from 'antd';
+import GlobalLayout from 'components/GlobalLayout';
+
+const Layout = styled.div`
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  grid-auto-rows: max-content;
+`;
 
 const Home = () => (
-  <div>
-    <Head title="Home" />
-    <Nav />
-
-    <div className="hero">
-      <h1 className="title">
-        Learn <Link href="/posts/first-post">Next!</Link>
-      </h1>
-      <p className="description">
-        To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
-
-      <div className="row">
-        <Link href="//github.com/zeit/next.js#getting-started">
-          <a className="card">
-            <h3>Getting Started &rarr;</h3>
-            <p>Learn more about Next on Github and in their examples</p>
-          </a>
-        </Link>
-        <Link href="//open.segment.com/create-next-app">
-          <a className="card">
-            <h3>Examples &rarr;</h3>
-            <p>
-              Find other example boilerplates on the{' '}
-              <code>create-next-app</code> site
-            </p>
-          </a>
-        </Link>
-        <Link href="//github.com/segmentio/create-next-app">
-          <a className="card">
-            <h3>Create Next App &rarr;</h3>
-            <p>Was this tool helpful? Let us know how we can improve it</p>
-          </a>
-        </Link>
-      </div>
-    </div>
-
-    <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
-      }
-      .title,
-      .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}</style>
-  </div>
+  <GlobalLayout>
+    <Head title="iwantcoffee" />
+    <Layout>
+      <Link href="/placeorder">
+        <Button type="primary">Place Order</Button>
+      </Link>
+      <Link href="/fulfiller/orders">
+        <Button>View Past Orders</Button>
+      </Link>
+    </Layout>
+  </GlobalLayout>
 );
 
 export default Home;
