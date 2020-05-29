@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Head from '../components/Head';
+import Head from '../components/AppHead';
 import styled from 'styled-components';
 import { Button } from 'antd';
 import GlobalLayout from '../components/GlobalLayout';
