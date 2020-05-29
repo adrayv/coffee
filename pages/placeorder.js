@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react';
-import GlobalLayout from 'components/GlobalLayout';
-import Menu from 'components/Menu';
-import InputName from 'components/InputName';
-import InputPhoneNum from 'components/InputPhoneNum';
+import GlobalLayout from '~/components/GlobalLayout';
+import Menu from '~/components/Menu';
+import InputName from '~/components/InputName';
+import InputPhoneNum from '~/components/InputPhoneNum';
 import { Button } from 'antd';
-import Head from 'components/Head';
+import Head from '~/components/Head';
 
 export default () => {
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);

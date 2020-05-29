@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": "."
-  }
+    "target": "ES6",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"]
+    }
+  },
+  "exclude": ["build", "node_modules", "static"]
 }
