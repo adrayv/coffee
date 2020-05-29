@@ -1,7 +1,6 @@
 {
   "presets": ["next/babel"],
   "plugins": [
-    ["styled-components", { "ssr": true }],
     [
       "import",
       {
@@ -18,6 +17,8 @@
         "camel2DashComponentName": false
       },
       "@ant-design/icons"
-    ]
+    ],
+    ["styled-components", { "ssr": true }],
+    ["babel-plugin-root-import"]
   ]
 }

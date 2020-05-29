@@ -1,10 +1,25 @@
 {
-  "name": "create-next-example-app",
+  "name": "with-ant-design",
+  "version": "1.0.0",
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=\"-r esm\" next",
     "build": "cross-env NODE_OPTIONS=\"-r esm\" next build",
     "analyze": "cross-env-shell NODE_OPTIONS=\"-r esm\" ANALYZE=true next build",
     "start": "next start"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.0.6",
+    "@next/bundle-analyzer": "^9.1.4",
+    "antd": "4.1.2",
+    "babel-plugin-import": "1.13.0",
+    "cross-env": "^7.0.2",
+    "dayjs": "1.8.24",
+    "esm": "^3.2.25",
+    "next": "^9.4.4",
+    "postcss-preset-env": "^6.7.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1"
   },
   "prettier": {
     "$schema": "http://json.schemastore.org/prettierrc",
@@ -33,23 +48,12 @@
       "pre-commit": "lint-staged"
     }
   },
-  "dependencies": {
-    "@ant-design/icons": "^4.1.0",
-    "@next/bundle-analyzer": "^9.4.4",
-    "antd": "^4.2.5",
-    "babel-plugin-import": "^1.13.0",
-    "cross-env": "^7.0.2",
-    "esm": "^3.2.25",
-    "next": "^9.4.4",
-    "postcss-preset-env": "^6.7.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "styled-components": "^5.1.1"
-  },
+  "license": "ISC",
   "devDependencies": {
+    "babel-plugin-root-import": "^6.5.0",
     "babel-plugin-styled-components": "^1.10.7",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.6",
+    "lint-staged": "^10.2.7",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1"
   }
