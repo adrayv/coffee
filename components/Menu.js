@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Typography } from 'antd';
-import MenuItem from '~/components/MenuItem';
+import MenuItem from '../components/MenuItem';
 
 const { Title } = Typography;
 

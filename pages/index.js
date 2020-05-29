@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import Head from '~/components/Head';
+import Head from '../components/Head';
 import styled from 'styled-components';
 import { Button } from 'antd';
-import GlobalLayout from '~/components/GlobalLayout';
+import GlobalLayout from '../components/GlobalLayout';
 
 const Layout = styled.div`
   width: 100%;
