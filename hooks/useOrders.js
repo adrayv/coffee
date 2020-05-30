@@ -9,7 +9,15 @@ export default () => {
       error,
     };
   };
+  const getOrders = () => {
+    const { data, error } = useSWR('/api/orders', fetcher);
+    return {
+      orders: data,
+      error,
+    };
+  };
   return {
     getOrderById,
+    getOrders,
   };
 };

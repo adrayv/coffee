@@ -2,9 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import GlobalLayout from '~/components/GlobalLayout';
 import useOrders from '~/hooks/useOrders';
-import { Card } from 'antd';
-
-const { Meta } = Card;
+import Order from '~/components/Order';
 
 export default () => {
   const router = useRouter();
@@ -16,23 +14,15 @@ export default () => {
   }
   return (
     <GlobalLayout>
-      <div>
-        <Card style={{ width: '100%' }} loading={!order}>
-          {order && (
-            <>
-              <Meta
-                title={order.order_name}
-                description="This is the description"
-              />
-              <p>{order.id}</p>
-              <p>{order.customer_name}</p>
-              <p>{order.order_name}</p>
-              <p>{order.customer_phone_num}</p>
-              <p>{order.created_at}</p>
-            </>
-          )}
-        </Card>
-      </div>
+      <Order
+        isLoading={!order}
+        orderId={order && order.id}
+        orderName={order && order.order_name}
+        orderStatus={order && order.status}
+        customerName={order && order.customer_name}
+        customerPhoneNum={order && order.customer_phone_num}
+        createdDate={order && order.created_at}
+      />
     </GlobalLayout>
   );
 };

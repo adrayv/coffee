@@ -10,6 +10,7 @@ export default (req, res) => {
         order_name: 'Iced Coffee',
         customer_phone_num: '9517411386',
         created_at: new Date(),
+        status: 'Pending',
       });
     }, 1000);
   });
