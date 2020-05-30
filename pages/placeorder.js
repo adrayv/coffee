@@ -5,6 +5,7 @@ import InputName from '~/components/InputName';
 import InputPhoneNum from '~/components/InputPhoneNum';
 import { Button } from 'antd';
 import Head from '~/components/AppHead';
+import Router from 'next/router';
 
 export default () => {
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);
@@ -24,6 +25,11 @@ export default () => {
 
   const canSubmit = Boolean(name && phoneNum && selectedMenuItem);
 
+  const submitHandler = useCallback(() => {
+    // const id = placeOrder(name, phoneNum, selectedMenuItem)
+    Router.push(`/orders/1234`);
+  }, []);
+
   return (
     <GlobalLayout>
       <Head title="Place an Order" />
@@ -37,15 +43,7 @@ export default () => {
       />
       <InputName name={name} onNameChange={setName} />
       <InputPhoneNum phoneNum={phoneNum} onPhoneNumChange={setPhoneNum} />
-      <Button
-        type="primary"
-        disabled={!canSubmit}
-        onClick={() =>
-          alert(
-            `${name} wants to order ${selectedMenuItem}. Sending notifications to ${phoneNum}`
-          )
-        }
-      >
+      <Button type="primary" disabled={!canSubmit} onClick={submitHandler}>
         Place Order
       </Button>
     </GlobalLayout>
