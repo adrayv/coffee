@@ -19,7 +19,7 @@ exports.notifyFulfiller = functions.firestore
       const res = await client.messages.create({
         to: `+1${customer_phone_num}`,
         from: functions.config().twilio.number,
-        body: `Hi ${customer_name}, your ${order_name}, is ${status}!`,
+        body: `Hi ${customer_name}. Your ${order_name}, is ${status}!`,
       });
 
       console.log('RESPONSE', res.body);
