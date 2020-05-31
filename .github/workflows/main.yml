@@ -12,10 +12,11 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Install Dependencies
-        run: cd functions && npm install
+        run: cd functions && cd functions && npm install
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only functions
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          PROJECT_PATH: ./functions
