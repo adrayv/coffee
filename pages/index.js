@@ -19,9 +19,6 @@ const Home = () => (
       <Link href="/placeorder">
         <Button type="primary">Place Order</Button>
       </Link>
-      <Link href="/fulfiller/orders">
-        <Button>View Past Orders</Button>
-      </Link>
     </Layout>
   </GlobalLayout>
 );

@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useCallback,
-  useState,
-} from 'react';
+import React, { createContext, useContext, useCallback, useState } from 'react';
 import uniqid from 'uniqid';
 
 const Context = createContext();
@@ -13,10 +7,6 @@ const { Provider } = Context;
 
 export const OrderProvider = ({ children }) => {
   const [orders, setOrders] = useState([]);
-
-  useEffect(() => {
-    console.log('ORDER PROVI', orders);
-  }, [orders]);
 
   const getOrders = useCallback(() => {
     if (orders.length === 0) return null;

@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import GlobalLayout from '~/components/GlobalLayout';
 import Order from '~/components/Order';
 import useOrder from '~/hooks/useOrder';
 import { Empty } from 'antd';
+import db from '~/services/firebase/firestore';
 
 export default () => {
+  const [order, setOrder] = useState(null);
   const router = useRouter();
   const { orderid } = router.query;
-  const { getOrderById } = useOrder();
-  const order = getOrderById(orderid);
+
+  useEffect(() => {
+    if (orderid) {
+      (async () => {
+        const order = await db.collection('orders').doc(orderid).get();
+        setOrder(order.data());
+      })();
+    }
+  }, [orderid]);
+
   if (!order) {
     return <Empty />;
   }

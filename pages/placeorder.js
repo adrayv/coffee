@@ -6,13 +6,12 @@ import InputPhoneNum from '~/components/InputPhoneNum';
 import { Button } from 'antd';
 import Head from '~/components/AppHead';
 import Router from 'next/router';
-import useOrder from '~/hooks/useOrder';
+import db from '~/services/firebase/firestore';
 
 export default () => {
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);
   const [name, setName] = useState('');
   const [phoneNum, setPhoneNum] = useState('');
-  const { createOrder } = useOrder();
 
   const menuItemSelectHandler = useCallback(
     itemName => {
@@ -27,8 +26,15 @@ export default () => {
 
   const canSubmit = Boolean(name && phoneNum && selectedMenuItem);
 
-  const submitHandler = useCallback(() => {
-    const id = createOrder(name, phoneNum, selectedMenuItem);
+  const submitHandler = useCallback(async () => {
+    const order = {
+      customer_name: name,
+      order_name: selectedMenuItem,
+      customer_phone_num: phoneNum,
+      created_at: new Date().getTime(),
+      status: 'Pending',
+    };
+    const { id } = await db.collection('orders').add(order);
     Router.push(`/orders/${id}`);
   }, [name, selectedMenuItem, phoneNum]);
 
