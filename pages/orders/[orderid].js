@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import GlobalLayout from '~/components/GlobalLayout';
 import Order from '~/components/Order';
-import useOrder from '~/hooks/useOrder';
 import { Empty } from 'antd';
 import db from '~/services/firebase/firestore';
 
