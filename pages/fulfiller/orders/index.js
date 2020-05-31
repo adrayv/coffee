@@ -1,15 +1,15 @@
 import React from 'react';
-import useOrders from '~/hooks/useOrders';
 import { Empty, List, Typography } from 'antd';
 import GlobalLayout from '~/components/GlobalLayout';
 import Router from 'next/router';
+import useOrder from '~/hooks/useOrder';
 const { Item } = List;
 const { Text } = Typography;
 
 export default () => {
-  const { getOrders } = useOrders();
-  const { orders, error } = getOrders();
-  if (error) {
+  const { getOrders } = useOrder();
+  const orders = getOrders();
+  if (!orders) {
     return <Empty />;
   }
   return (

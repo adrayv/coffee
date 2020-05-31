@@ -6,13 +6,13 @@ import InputPhoneNum from '~/components/InputPhoneNum';
 import { Button } from 'antd';
 import Head from '~/components/AppHead';
 import Router from 'next/router';
-import useOrders from '~/hooks/useOrders';
+import useOrder from '~/hooks/useOrder';
 
 export default () => {
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);
   const [name, setName] = useState('');
   const [phoneNum, setPhoneNum] = useState('');
-  const { placeOrder } = useOrders();
+  const { createOrder } = useOrder();
 
   const menuItemSelectHandler = useCallback(
     itemName => {
@@ -28,7 +28,7 @@ export default () => {
   const canSubmit = Boolean(name && phoneNum && selectedMenuItem);
 
   const submitHandler = useCallback(() => {
-    const id = placeOrder(name, phoneNum, selectedMenuItem);
+    const id = createOrder(name, phoneNum, selectedMenuItem);
     Router.push(`/orders/${id}`);
   }, [name, selectedMenuItem, phoneNum]);
 

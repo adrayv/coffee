@@ -1,27 +1,27 @@
 import React, { useCallback } from 'react';
 import { useRouter } from 'next/router';
 import GlobalLayout from '~/components/GlobalLayout';
-import useOrders from '~/hooks/useOrders';
 import Order from '~/components/Order';
-import { Select } from 'antd';
+import { Select, Empty } from 'antd';
 
 const { Option } = Select;
 
 export default () => {
   const router = useRouter();
   const { orderid } = router.query;
-  const { getOrderById, changeOrderStatus } = useOrders();
-  const { order, error } = getOrderById(orderid);
-  if (error) {
-    return <p>issue loading order</p>;
-  }
+  const { getOrderById, updateOrderStatus } = useOrder();
+  const order = getOrderById(orderid);
 
   const orderStatusChangeHandler = useCallback(
     newStatus => {
-      changeOrderStatus(orderid, newStatus);
+      updateOrderStatus(orderid, newStatus);
     },
-    [changeOrderStatus, orderid]
+    [updateOrderStatus, orderid]
   );
+
+  if (!order) {
+    return <Empty />;
+  }
 
   return (
     <GlobalLayout>

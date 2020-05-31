@@ -1,16 +1,17 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import GlobalLayout from '~/components/GlobalLayout';
-import useOrders from '~/hooks/useOrders';
 import Order from '~/components/Order';
+import useOrder from '~/hooks/useOrder';
+import { Empty } from 'antd';
 
 export default () => {
   const router = useRouter();
   const { orderid } = router.query;
-  const { getOrderById } = useOrders();
-  const { order, error } = getOrderById(orderid);
-  if (error) {
-    return <p>issue loading order</p>;
+  const { getOrderById } = useOrder();
+  const order = getOrderById(orderid);
+  if (!order) {
+    return <Empty />;
   }
   return (
     <GlobalLayout>
