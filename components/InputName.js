@@ -1,12 +1,10 @@
 import React from 'react';
-import { Input, Typography } from 'antd';
-
-const { Text } = Typography;
+import { Input } from 'antd';
 
 export default ({ name, onNameChange }) => (
   <>
-    <Text>Your Name</Text>
     <Input
+      placeholder="Name"
       style={{ width: '100%' }}
       value={name}
       onChange={e => onNameChange(e.target.value)}

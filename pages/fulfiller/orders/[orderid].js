@@ -1,11 +1,20 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import GlobalLayout from '~/components/GlobalLayout';
 import Order from '~/components/Order';
-import { Select, Empty } from 'antd';
+import { Select } from 'antd';
 import db from '~/services/firebase/firestore';
+import Loader from '~/components/Loader';
+import Head from 'next/head';
 
 const { Option } = Select;
+
+const OrderStatusChanger = ({ status, onStatusChange }) => (
+  <Select value={status} onChange={onStatusChange}>
+    <Option value="Pending">Pending</Option>
+    <Option value="In Progress">In Progress</Option>
+    <Option value="Done">Done</Option>
+  </Select>
+);
 
 export default () => {
   const [order, setOrder] = useState(null);
@@ -31,11 +40,12 @@ export default () => {
   );
 
   if (!order) {
-    return <Empty />;
+    return <Loader />;
   }
 
   return (
-    <GlobalLayout>
+    <>
+      <Head title={`order | ${String(order.order_name).toLowerCase()}`} />
       <Order
         orderId={order.id}
         orderName={order.order_name}
@@ -43,14 +53,13 @@ export default () => {
         customerName={order.customer_name}
         customerPhoneNum={order.customer_phone_num}
         createdDate={order.created_at}
+        extra={
+          <OrderStatusChanger
+            status={order.status}
+            onStatusChange={orderStatusChangeHandler}
+          />
+        }
       />
-      {order.status !== 'Done' && (
-        <Select value={order.status} onChange={orderStatusChangeHandler}>
-          <Option value="Pending">Pending</Option>
-          <Option value="In Progress">In Progress</Option>
-          <Option value="Done">Done</Option>
-        </Select>
-      )}
-    </GlobalLayout>
+    </>
   );
 };

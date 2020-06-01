@@ -10,13 +10,14 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   border: 1px solid #eee;
   border-radius: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
   cursor: pointer;
   &:hover {
-    background: ${props => (props.isSelected ? '#00ff00' : '#fafafa')};
+    background: ${props => (props.isSelected ? '#7ec2f3' : '#fafafa')};
   }
-  background: ${props => (props.isSelected ? '#00ff00' : '#ffffff')};
+  background: ${props => (props.isSelected ? '#7ec2f3' : '#ffffff')};
+  transition: all 0.2s ease;
 `;
 
 export default ({ name, description, isSelected, onClick }) => (

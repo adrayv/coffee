@@ -1,12 +1,10 @@
 import React from 'react';
-import { Input, Typography } from 'antd';
-
-const { Text } = Typography;
+import { Input } from 'antd';
 
 export default ({ phoneNum, onPhoneNumChange }) => (
   <>
-    <Text>Your Phone Number</Text>
     <Input
+      placeholder="Phone"
       type="number"
       style={{ width: '100%' }}
       value={phoneNum}

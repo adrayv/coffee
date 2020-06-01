@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import GlobalLayout from '~/components/GlobalLayout';
 import Order from '~/components/Order';
-import { Empty } from 'antd';
 import db from '~/services/firebase/firestore';
+import Loader from '~/components/Loader';
+import Head from '~/components/AppHead';
 
 export default () => {
   const [order, setOrder] = useState(null);
@@ -20,19 +20,21 @@ export default () => {
   }, [orderid]);
 
   if (!order) {
-    return <Empty />;
+    return <Loader />;
   }
   return (
-    <GlobalLayout>
-      <Order
-        isLoading={!order}
-        orderId={order && order.id}
-        orderName={order && order.order_name}
-        orderStatus={order && order.status}
-        customerName={order && order.customer_name}
-        customerPhoneNum={order && order.customer_phone_num}
-        createdDate={order && order.created_at}
+    <>
+      <Head
+        title={`manage order | ${String(order.order_name).toLowerCase()}`}
       />
-    </GlobalLayout>
+      <Order
+        orderId={orderid}
+        orderName={order.order_name}
+        orderStatus={order.status}
+        customerName={order.customer_name}
+        customerPhoneNum={order.customer_phone_num}
+        createdDate={order.created_at}
+      />
+    </>
   );
 };
