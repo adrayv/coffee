@@ -7,8 +7,10 @@ const client = require('twilio')(
 
 module.exports = functions.firestore
   .document('orders/{orderId}')
-  .onUpdate(async (snap, context) => {
+  .onUpdate(async (change, context) => {
     try {
+      const snap = change.after;
+
       const {
         customer_phone_num,
         customer_name,
@@ -21,9 +23,9 @@ module.exports = functions.firestore
       const res = await client.messages.create({
         to: `+1${customer_phone_num}`,
         from: functions.config().twilio.number,
-        body: `Hi ${customer_name}. Your order: ${order_name}, is ${String(
+        body: `\n\nHi ${customer_name}. Your ${order_name} is ${String(
           order_status
-        ).toLowerCase()}! Track your order here: https://coffee.now.sh/orders/${orderId}`,
+        ).toLowerCase()}!\n\nTrack your order here: https://coffee.now.sh/orders/${orderId}`,
       });
 
       console.log('TWILIO RESPONSE - NOTIFY CUSTOMER OF CHANGE', res.body);

@@ -16,7 +16,7 @@ module.exports = functions.firestore
       const res = await client.messages.create({
         to: `+1${customer_phone_num}`,
         from: functions.config().twilio.number,
-        body: `Hi ${customer_name}. Your order: ${order_name}, is on its way! Track your order here: https://coffee.now.sh/orders/${orderId}`,
+        body: `\n\nHi ${customer_name}. Your ${order_name} is on its way!\n\nTrack your order here: https://coffee.now.sh/orders/${orderId}`,
       });
 
       console.log('TWILIO RESPONSE - NOTIFY CUSTOMER', res.body);
