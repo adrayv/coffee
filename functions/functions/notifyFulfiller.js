@@ -16,7 +16,7 @@ module.exports = functions.firestore
       const res = await client.messages.create({
         to: functions.config().fulfiller.number,
         from: functions.config().twilio.number,
-        body: `\n\n${customer_name} would like you to make a ${order_name}.\n\nManage this order here: https://coffee.now.sh/fulfiller/orders/${orderId}`,
+        body: `\n\n${customer_name} would like you to make a ${order_name}.\n\nManage this order here: https://iwantcoffee.now.sh/fulfiller/orders/${orderId}`,
       });
 
       console.log('TWILIO RESPONSE - NOTIFY FULFILLER', res.body);

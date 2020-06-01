@@ -14,12 +14,6 @@ const Layout = styled.div`
   grid-gap: 20px;
 `;
 
-const MenuWrapper = styled.div`
-  width: 100%;
-  height: 65vh;
-  overflow: auto;
-`;
-
 const UserDetailsWrapper = styled.div`
   display: grid;
   grid-template: max-content / repeat(3, 1fr);
@@ -72,35 +66,33 @@ export default () => {
           Place Order
         </Button>
       </UserDetailsWrapper>
-      <MenuWrapper>
-        <Menu
-          menuItems={[
-            { name: 'Hot Chocolate', description: 'a drink' },
-            { name: 'Hot Mocha Coffee', description: 'a drink' },
-            { name: 'Iced Mocha Coffee', description: 'with milk' },
-            { name: 'Hot Mocha Latte', description: 'a drink' },
-            { name: 'Iced Mocha Latte', description: 'a drink' },
-            { name: 'Hot Hazelnut Coffee', description: 'a drink' },
-            { name: 'Iced Hazelnut Coffee', description: 'a drink' },
-            { name: 'Hot Hazelnut Latte', description: 'a drink' },
-            { name: 'Iced Hazelnut Latte', description: 'a drink' },
-            { name: 'Hot Coffee', description: 'a drink' },
-            { name: 'Iced Coffee', description: 'a drink' },
-            { name: 'Hot Latte', description: 'a drink' },
-            { name: 'Iced Latte', description: 'a drink' },
-            { name: 'Hot Americano', description: 'with milk' },
-            { name: 'Iced Americano', description: 'with milk' },
-            { name: 'Single Espresso Shot', description: 'with milk' },
-            { name: 'Double Espresso Shot', description: 'with milk' },
-            { name: 'Hot Hibiscus Tea', description: 'with milk' },
-            { name: 'Iced Hibiscus Tea', description: 'with milk' },
-            { name: 'Hot English Breakfast Tea', description: 'with milk' },
-            { name: 'Iced English Breakfast Tea', description: 'with milk' },
-          ]}
-          selectedMenuItem={selectedMenuItem}
-          onMenuItemSelect={menuItemSelectHandler}
-        />
-      </MenuWrapper>
+      <Menu
+        menuItems={[
+          { name: 'Hot Chocolate', description: 'a drink' },
+          { name: 'Hot Mocha Coffee', description: 'a drink' },
+          { name: 'Iced Mocha Coffee', description: 'with milk' },
+          { name: 'Hot Mocha Latte', description: 'a drink' },
+          { name: 'Iced Mocha Latte', description: 'a drink' },
+          { name: 'Hot Hazelnut Coffee', description: 'a drink' },
+          { name: 'Iced Hazelnut Coffee', description: 'a drink' },
+          { name: 'Hot Hazelnut Latte', description: 'a drink' },
+          { name: 'Iced Hazelnut Latte', description: 'a drink' },
+          { name: 'Hot Coffee', description: 'a drink' },
+          { name: 'Iced Coffee', description: 'a drink' },
+          { name: 'Hot Latte', description: 'a drink' },
+          { name: 'Iced Latte', description: 'a drink' },
+          { name: 'Hot Americano', description: 'with milk' },
+          { name: 'Iced Americano', description: 'with milk' },
+          { name: 'Single Espresso Shot', description: 'with milk' },
+          { name: 'Double Espresso Shot', description: 'with milk' },
+          { name: 'Hot Hibiscus Tea', description: 'with milk' },
+          { name: 'Iced Hibiscus Tea', description: 'with milk' },
+          { name: 'Hot English Breakfast Tea', description: 'with milk' },
+          { name: 'Iced English Breakfast Tea', description: 'with milk' },
+        ]}
+        selectedMenuItem={selectedMenuItem}
+        onMenuItemSelect={menuItemSelectHandler}
+      />
     </Layout>
   );
 };

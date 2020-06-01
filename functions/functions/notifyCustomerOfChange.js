@@ -15,7 +15,7 @@ module.exports = functions.firestore
         customer_phone_num,
         customer_name,
         order_name,
-        order_status,
+        status,
       } = snap.data();
 
       const { orderId } = context.params;
@@ -24,8 +24,8 @@ module.exports = functions.firestore
         to: `+1${customer_phone_num}`,
         from: functions.config().twilio.number,
         body: `\n\nHi ${customer_name}. Your ${order_name} is ${String(
-          order_status
-        ).toLowerCase()}!\n\nTrack your order here: https://coffee.now.sh/orders/${orderId}`,
+          status
+        ).toLowerCase()}!\n\nTrack your order here: https://iwantcoffee.now.sh/orders/${orderId}`,
       });
 
       console.log('TWILIO RESPONSE - NOTIFY CUSTOMER OF CHANGE', res.body);

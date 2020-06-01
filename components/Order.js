@@ -62,7 +62,6 @@ export default ({
           size="small"
           column={2}
         >
-          <Descriptions.Item label="Order ID">{orderId}</Descriptions.Item>
           <Descriptions.Item label="Order Name">{orderName}</Descriptions.Item>
           <Descriptions.Item label="Customer">{customerName}</Descriptions.Item>
           <Descriptions.Item label="Phone">
